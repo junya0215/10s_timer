@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="index.css">
+  <title>10s count</title>
+</head>
+<body>
+<div id="wrap">
+  <div class="asset">
+    カウントボイスは 
+    <a href="http://www14.big.or.jp/~amiami/happy/">あみたろの声素材工房</a>
+    の声素材を使用しています。
+  </div>
+  <button id="start">START</button>
+  <div id="time">10</div>
+  <button id="end">END</button>
+</div>
+<script>
+var wrap  = document.getElementById('wrap');
+
+var start = document.getElementById('start');
+var time  = document.getElementById('time');
+var end   = document.getElementById('end');
+
+var intervalID, count = 11;
+
+var audio = new Audio();
+audio.src = "countdownVoice.wav";
+
+
+start.addEventListener('click',function () {
+  start.style.display = 'none';
+  end.style.display   = 'inline-block';
+  time.style.display  = 'inline-block';
+
+  // カウント開始
+  intervalID = window.setInterval(countDown,1000);
+});
+
+end.addEventListener('click',function () {
+  start.style.display = 'inline-block';
+  end.style.display   = 'none';
+  time.style.display  = 'none';
+
+  // カウント終了
+  clearInterval(intervalID);
+  intervalID = null;
+
+  // カウントリセット
+  count = 11;
+  time.textContent = 10;
+
+  audio.pause();
+  audio.currentTime = 0;
+});
+
+// カウントダウン
+function countDown () {
+  if(count == 11){ 
+    audio.currentTime = 0; 
+    audio.play(); 
+  }
+
+  count--;
+  time.textContent = count;
+
+  if(count <= 0){
+    clearInterval(intervalID); 
+    return;
+  }
+}
+
+// カウントリセット
+wrap.addEventListener('click',function (argument) {
+    if(intervalID){
+      count = 11;
+    }
+});
+</script>
+</body>
+</html>
