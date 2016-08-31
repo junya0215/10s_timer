@@ -52,4 +52,6 @@
 
   font-size: 1em;
   padding-right: 1em;
+
+  z-index: 9999;
 }
