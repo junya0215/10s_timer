@@ -25,9 +25,6 @@ function startEvent () {
   start.style.display = 'none';
   reset.style.display = 'block';
   time.style.display  = 'inline-block';
-
-  audio.play();
-  audio.currentTime = 0;
   intervalID = window.setInterval(countDown,1000);
 }
 
@@ -35,12 +32,12 @@ function resetEvent () {
   reset.classList.add('clicked');
   time.textContent = count = 10;
   clearInterval(intervalID); 
-  audio.currentTime = 0;
   intervalID = window.setInterval(countDown,1000);
   reset.classList.remove('clicked');
 }
 
 function countDown () {
+  audio.play();
   time.textContent = --count;
 
   if(count <= 0){
