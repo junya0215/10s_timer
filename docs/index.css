@@ -7,7 +7,7 @@
   position: fixed;
   top: 50%; left: 50%;
   display: none;
-  font-size: 8em;
+  font-size: 35em;
   width: -webkit-fit-content; 
   width: fit-content;
   padding: .25em .5em;
@@ -19,7 +19,7 @@
   position: fixed;
   top: 50%; left: 50%;
   display: inline-block;
-  font-size: 5em;
+  font-size: 10em;
   text-align: center;
   transform: translate(-50%,-50%);
 }
