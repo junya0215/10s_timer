@@ -23,8 +23,8 @@ var intervalID, count = 10;
 
 var audio = new Audio("countdownVoice.wav");
 
-start.addEventListener('mousedown',startEvent);
-reset.addEventListener('mousedown',resetEvent);
+start.addEventListener('touchend',startEvent);
+reset.addEventListener('touchend',resetEvent);
 
 function startEvent () {
   start.style.display = 'none';
