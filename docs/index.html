@@ -16,18 +16,16 @@
   <div id="time">10</div>
   <button id="end">END</button>
 </div>
-<script>
+<script charset="UTF-8">
 var wrap  = document.getElementById('wrap');
 
 var start = document.getElementById('start');
 var time  = document.getElementById('time');
 var end   = document.getElementById('end');
 
-var intervalID, count = 11;
+var intervalID, count = 10;
 
-var audio = new Audio();
-audio.src = "countdownVoice.wav";
-
+var audio = new Audio("countdownVoice.wav");
 
 start.addEventListener('click',function () {
   start.style.display = 'none';
@@ -72,7 +70,7 @@ function countDown () {
 }
 
 // カウントリセット
-wrap.addEventListener('click',function (argument) {
+wrap.addEventListener('click',function () {
     if(intervalID){
       count = 11;
     }
