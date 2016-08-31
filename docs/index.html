@@ -32,14 +32,15 @@ function startEvent () {
   time.style.display  = 'inline-block';
 
   audio.play();
+  audio.currentTime = 0;
   intervalID = window.setInterval(countDown,1000);
 }
 
 function resetEvent () {
   reset.classList.add('clicked');
   time.textContent = count = 10;
-  audio.currentTime = 0;
   clearInterval(intervalID); 
+  audio.currentTime = 0;
   intervalID = window.setInterval(countDown,1000);
   reset.classList.remove('clicked');
 }
