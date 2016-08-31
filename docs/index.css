@@ -43,14 +43,3 @@
 .clicked{
   pointer-events: none;
 }
-
-.asset{
-  position: fixed;
-  bottom: 0;
-  right: 0;
-
-  font-size: 1em;
-  padding-right: 1em;
-
-  z-index: 9999;
-}

@@ -7,11 +7,6 @@
 </head>
 <body>
   <div id="reset"></div>
-  <div class="asset">
-    カウントボイスは 
-    <a href="http://www14.big.or.jp/~amiami/happy/">あみたろの声素材工房</a>
-    の声素材を使用しています。
-  </div>
   <button id="start">START</button>
   <div id="time">10</div>
 <script charset="UTF-8">
@@ -21,7 +16,7 @@ var reset = document.getElementById('reset');
 
 var intervalID, count = 10;
 
-var audio = new Audio("countdownVoice.wav");
+var audio = new Audio("countdown.wav");
 
 start.addEventListener('touchend',startEvent);
 reset.addEventListener('touchend',resetEvent);
