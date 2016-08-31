@@ -14,6 +14,8 @@ var time  = document.getElementById('time');
 var start = document.getElementById('start');
 var reset = document.getElementById('reset');
 
+var clicked = false;
+
 var intervalID, count = 10;
 
 var audio = new Audio("countdown.wav");
@@ -29,11 +31,12 @@ function startEvent () {
 }
 
 function resetEvent () {
-  reset.classList.add('clicked');
+  if(clicked) return;
+  clicked = true;
   time.textContent = count = 10;
   clearInterval(intervalID); 
   intervalID = window.setInterval(countDown,1000);
-  reset.classList.remove('clicked');
+  clicked = false;
 }
 
 function countDown () {
