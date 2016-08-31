@@ -3,6 +3,10 @@
   user-select: none;
 }
 
+body{
+  background-color: black;
+}
+
 #time{
   position: fixed;
   top: 50%; left: 50%;
@@ -11,8 +15,13 @@
   width: -webkit-fit-content; 
   width: fit-content;
   padding: .25em .5em;
+  color: rgba(0,0,0,0);
+  background-image: linear-gradient(135deg, red 45%, white ,crimson 60%);
+  -webkit-background-clip: text;
   pointer-events: none;
   transform: translate(-50%,-50%);
+
+  z-index: 1;
 }
 
 #start{
@@ -20,8 +29,11 @@
   top: 50%; left: 50%;
   display: inline-block;
   font-size: 10em;
+  color: white;
   text-align: center;
   transform: translate(-50%,-50%);
+
+  z-index: 1;
 }
 
 #reset{
