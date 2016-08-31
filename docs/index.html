@@ -23,37 +23,39 @@ var intervalID, count = 10;
 
 var audio = new Audio("countdownVoice.wav");
 
-start.addEventListener('click',function () {
+start.addEventListener('mousedown',startEvent);
+start.addEventListener('touchstart',startEvent);
+
+reset.addEventListener('mousedown',resetEvent);
+reset.addEventListener('touchstart',resetEvent);
+
+function startEvent () {
   start.style.display = 'none';
   reset.style.display = 'block';
   time.style.display  = 'inline-block';
 
-  // カウント開始
   audio.play();
   intervalID = window.setInterval(countDown,1000);
-});
+}
 
-// カウントダウン
+function resetEvent () {
+  reset.classList.add('clicked');
+  time.textContent = count = 10;
+  audio.currentTime = 0;
+  clearInterval(intervalID); 
+  intervalID = window.setInterval(countDown,1000);
+  reset.classList.remove('clicked');
+}
+
 function countDown () {
-  if(count == 11){ 
-    audio.currentTime = 0;
-    reset.classList.remove('clicked');
-  }
-
-  count--;
-  time.textContent = count;
+  time.textContent = --count;
 
   if(count <= 0){
-    clearInterval(intervalID); 
+    clearInterval(intervalID);
+    reset.style.display = 'none';
     return;
   }
 }
-
-// カウントリセット
-reset.addEventListener('click',function () {
-  reset.classList.add('clicked');
-  count = 11;
-});
 </script>
 </body>
 </html>

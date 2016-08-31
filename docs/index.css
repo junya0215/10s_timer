@@ -40,7 +40,6 @@
   z-index: 1;
 }
 
-/* 連続クリック防止 */
 .clicked{
   pointer-events: none;
 }
