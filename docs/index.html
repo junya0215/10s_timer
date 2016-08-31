@@ -5,8 +5,8 @@
   <link rel="stylesheet" href="index.css">
   <title>10s count</title>
 </head>
-<body>
-<div id="wrap">
+<body ontouchstart="">
+  <div id="reset"></div>
   <div class="asset">
     カウントボイスは 
     <a href="http://www14.big.or.jp/~amiami/happy/">あみたろの声素材工房</a>
@@ -14,14 +14,10 @@
   </div>
   <button id="start">START</button>
   <div id="time">10</div>
-  <button id="end">END</button>
-</div>
 <script charset="UTF-8">
-var wrap  = document.getElementById('wrap');
-
-var start = document.getElementById('start');
 var time  = document.getElementById('time');
-var end   = document.getElementById('end');
+var start = document.getElementById('start');
+var reset = document.getElementById('reset');
 
 var intervalID, count = 10;
 
@@ -29,35 +25,19 @@ var audio = new Audio("countdownVoice.wav");
 
 start.addEventListener('click',function () {
   start.style.display = 'none';
-  end.style.display   = 'inline-block';
+  reset.style.display = 'block';
   time.style.display  = 'inline-block';
 
   // カウント開始
+  audio.play();
   intervalID = window.setInterval(countDown,1000);
-});
-
-end.addEventListener('click',function () {
-  start.style.display = 'inline-block';
-  end.style.display   = 'none';
-  time.style.display  = 'none';
-
-  // カウント終了
-  clearInterval(intervalID);
-  intervalID = null;
-
-  // カウントリセット
-  count = 11;
-  time.textContent = 10;
-
-  audio.pause();
-  audio.currentTime = 0;
 });
 
 // カウントダウン
 function countDown () {
   if(count == 11){ 
-    audio.currentTime = 0; 
-    audio.play(); 
+    audio.currentTime = 0;
+    reset.classList.remove('clicked');
   }
 
   count--;
@@ -70,10 +50,9 @@ function countDown () {
 }
 
 // カウントリセット
-wrap.addEventListener('click',function () {
-    if(intervalID){
-      count = 11;
-    }
+reset.addEventListener('click',function () {
+  reset.classList.add('clicked');
+  count = 11;
 });
 </script>
 </body>

@@ -3,34 +3,6 @@
   user-select: none;
 }
 
-#wrap{
-  position: fixed;
-  top: 0; left: 0;
-
-  width: 100%;
-  height: 100%;
-}
-
-#start{
-  position: fixed;
-  top: 50%; left: 50%;
-  
-  display: inline-block;
-  font-size: 5em;
-  text-align: center;
-
-  transform: translate(-50%,-50%);
-}
-
-#end{
-  position: fixed;
-  top: 0; left: 0;
-  
-  display: none;
-  font-size: 2.5em;
-  text-align: center;
-}
-
 #time{
   position: fixed;
   top: 50%; left: 50%;
@@ -44,6 +16,33 @@
   pointer-events: none;
 
   transform: translate(-50%,-50%);
+}
+
+#start{
+  position: fixed;
+  top: 50%; left: 50%;
+  
+  display: inline-block;
+  font-size: 5em;
+  text-align: center;
+
+  transform: translate(-50%,-50%);
+}
+
+#reset{
+  position: fixed;
+  top: 0; left: 0;
+  
+  display: none;
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+}
+
+/* 連続クリック防止 */
+.clicked{
+  pointer-events: none;
 }
 
 .asset{
