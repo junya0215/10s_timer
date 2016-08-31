@@ -10,10 +10,13 @@
   <div id="reset"></div>
   <button id="start">START</button>
   <div id="time">10</div>
+  <div id="limit"></div>
 <script charset="UTF-8">
 var time  = document.getElementById('time');
 var start = document.getElementById('start');
 var reset = document.getElementById('reset');
+
+var limit = document.getElementById('limit');
 
 var clicked = false;
 
@@ -35,6 +38,7 @@ function resetEvent () {
   if(clicked) return;
   clicked = true;
   time.textContent = count = 10;
+  limit.style.top = 100 +'%';
   clearInterval(intervalID); 
   intervalID = window.setInterval(countDown,1000);
   clicked = false;
@@ -42,7 +46,9 @@ function resetEvent () {
 
 function countDown () {
   audio.play();
+
   time.textContent = --count;
+  limit.style.top = (count * 10) + '%'; 
 
   if(count <= 0){
     clearInterval(intervalID);
