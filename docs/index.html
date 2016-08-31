@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="index.css">
   <title>10s count</title>
 </head>
-<body ontouchstart="">
+<body>
   <div id="reset"></div>
   <div class="asset">
     カウントボイスは 
@@ -33,6 +33,8 @@ function startEvent () {
   start.style.display = 'none';
   reset.style.display = 'block';
   time.style.display  = 'inline-block';
+
+  document.body.innerHTML += 'startevent';
 
   audio.play();
   intervalID = window.setInterval(countDown,1000);
